@@ -1034,6 +1034,7 @@ void maf_mafBlock_print(mafBlock_t *m) {
   }
   ml = maf_mafBlock_getHeadLine(m);
   if (ml != NULL) {
+#pragma GCC diagnostic warning "-Wformat-overflow"
     sprintf(fmtName, " %%-%"PRIu64"s", maxName + 2);
     sprintf(fmtStart, " %%%d"PRIu64, (int)log10(maxStart) + 2);
     sprintf(fmtLen, " %%%d"PRIu64, (int)log10(maxLen) + 2);

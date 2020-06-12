@@ -649,6 +649,8 @@ void writeMafOut(stHash *alignmentHash, stList *rowOrder, options_t *options) {
             maxSource = r->sourceLength;
         }
     }
+/* for gcc 8.3 */
+#pragma GCC diagnostic warning "-Wformat-overflow"
     fmtLine = (char*) st_malloc(4 + (int)log10(maxName) + 3 + (int)log10(maxStart) + 3 + (int)log10(maxLen) + 
                                 3 + (int)log10(maxSource) + 4 + r->index);
     fmtLine[0] = '\0';
