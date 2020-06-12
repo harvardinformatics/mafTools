@@ -30,3 +30,6 @@ RUN apt update && apt install -y --no-install-recommends python-numpy \
   && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /mafTools/bin/ /usr/local/bin/
+
+# disable ~/.local when bind mounting home directories
+ENV PYTHONNOUSERSITE=1
